@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompteUtilisateur;
+use App\Models\UneFormation;
 use App\Models\UneVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -20,17 +21,48 @@ class CompteUtilisateurController extends Controller
     }
 
     public function getInfo(){
-        $me = CompteUtilisateur::Select()->where('id','=','1')->first();
-        return $me;
+        if(session::has('login')){
+            $myId = session::get('login');
+            $me = CompteUtilisateur::Select()->where('id','=',$myId)->first();
+            return $me;
+        } else {
+            return view('Authentification');
+        }
+
     }
 
     public function ShowVideo($c){
-        if($this->getInfo()->FormationEtape >= $c){
-            $data = UneVideo::find($c)->get();
-            return view('ShowVideo', ['data' => $data]);
+        if($this->getInfo()){
+        $formation = UneFormation::Select('*')->where('showType','=','1')->where('showId','=',$c)->first();
+        if($this->getInfo()->FormationEtape == $formation->id-1){
+            $data = UneVideo::find($c);
+           
+            $myId = session::get('login');
+            session(['IdFormation' => $formation->id]);
+            $me = CompteUtilisateur::Select()->where('id','=',$myId)->update(array('FormationEtape' =>  $formation->id));
+            return view('Video', ['data' => $data,'formation'=>$formation]);
         } else {
             return view('Sommaire');
         }
+    } else {
+        dd('Hs');
+    }
+        
+    }
+
+    public function ShowQuiz($c){
+        if($this->getInfo()){
+        $formation = UneFormation::Select('*')->where('showType','=','2')->where('showId','=',$c)->first();
+        if($this->getInfo()->FormationEtape == $formation->id-1){
+            $data = UneVideo::find($c);
+            session(['IdFormation' => $formation->id]);
+            return view('UnQuiz', ['data' => $data,'formation'=>$formation]);
+        } else {
+            return view('Sommaire');
+        }
+    } else {
+        dd('Hs');
+    }
         
     }
     

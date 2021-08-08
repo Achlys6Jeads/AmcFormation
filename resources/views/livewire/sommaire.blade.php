@@ -9,16 +9,17 @@
                     <p class="formation-name">{{ $value->Titre }}</p>
                     <p class="formation-description">{{ $value->Description }}</p>
                 </div>
-                @if($provider->getInfo()->FormationEtape >= $value->id-1)
+                @if($provider->getInfo()->FormationEtape == $value->id-1)
                         @if( $value->showType == 1)
                                 <a href="{{ url('video/') }}-{{ $value->showId }}" class="start-btn">Regarder</a>
                         @elseif( $value->showType == 2)
                                 <a href="{{ url('quiz/') }}-{{ $value->showId }}" class="start-btn">Me Tester</a>
                         @endif
                        
+                @elseif($provider->getInfo()->FormationEtape > $value->id-1)
+                <a href="" class="start-btn" style="filter:grayscale(100%);cursor:default;">Vous avez déjà regarder cette partie.</a>
                 @else
                 <a href="" class="start-btn" style="filter:grayscale(100%);cursor:default;">En attente</a>
-
                 @endif
         </div>
         @endforeach
