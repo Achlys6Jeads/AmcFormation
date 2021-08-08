@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Livewire;
-
 use Livewire\Component;
+use App\Models\UneFormation;
 
 class Sommaire extends Component
 {
     public function Sommaire(){
-        $hope = UneFormation::find(1);
-        return $hope;
+
+    
+        return UneFormation::find(1)->get();
+        
     }
     public function render()
     {

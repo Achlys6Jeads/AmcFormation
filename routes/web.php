@@ -20,5 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', [CompteUtilisateurController::class, 'getInfo']);
+
+
+Route::get('/video-{key}', [CompteUtilisateurController::class, 'ShowVideo']);
+Route::get('/quiz-{key}', [CompteUtilisateurController::class, 'ShowQuiz']);
+
+
 Route::get('/', [CompteUtilisateurController::class, 'Home']);
 
