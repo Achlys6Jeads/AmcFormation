@@ -19,7 +19,7 @@
 <div class="navbar">
     <div class="container">
         <div class="side">
-            <img src="https://www.dircab.net/upload/billet/0001/191212-121241-ramery-immobilier.png" alt="" class="logo-img">
+            <a href="{{url('')}}"><img src="https://www.dircab.net/upload/billet/0001/191212-121241-ramery-immobilier.png" alt="" class="logo-img"></a>
         </div>
     </div>
 </div>

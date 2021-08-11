@@ -9,7 +9,7 @@ class Sommaire extends Component
     public function Sommaire(){
 
     
-        return UneFormation::find(1)->get();
+        return UneFormation::Select('*')->get();
         
     }
     public function render()

@@ -2,7 +2,7 @@
     <div class="quizz">
         <div class="top">
             <div class="line-up">
-                <p class="quizz-avancement">{{@$etapeCurrent}}/{{@$etapeEnd}} ({{ @$Rep }})</p>
+                <p class="quizz-avancement">{{@$etapeCurrent}}/{{@$etapeEnd}} ({{ @$Rep }}) ({{ @$score }})</p>
             </div>
             <img class="formation-img" src="{{ @$quiz['image']}}" alt="">
         </div>

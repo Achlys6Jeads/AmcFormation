@@ -26,6 +26,8 @@ Route::get('/test', [CompteUtilisateurController::class, 'getInfo']);
 Route::get('/video-{key}', [CompteUtilisateurController::class, 'ShowVideo']);
 Route::get('/quiz-{key}', [CompteUtilisateurController::class, 'ShowQuiz']);
 
-
+Route::get('/resultat', function () {
+    return view('resultat');
+});
 Route::get('/', [CompteUtilisateurController::class, 'Home']);
 
