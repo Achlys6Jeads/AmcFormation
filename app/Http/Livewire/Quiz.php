@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Session;
 class Quiz extends Component
 {
     public $quiz;
-    
+    public $data;
     public $reponse = 1;
     public $etapeCurrent = 1;
     public $userReponse = null;
-    public $etapeEnd = 3;
+    public $etapeEnd = null;
     public $Rep;
     public $score =0;
     public $end = false;
@@ -29,6 +29,8 @@ class Quiz extends Component
             $this->quiz['Question2'] = $q->Question2;
             $this->quiz['Question3'] = $q->Question3;
             $this->quiz['Question4'] = $q->Question4;
+            $this->quiz['ennonce'] = $q->ennonce;
+            $this->reponse = $q->Reponse;
             $this->quiz['image'] = $q->image;
         }
     }
@@ -75,6 +77,12 @@ class Quiz extends Component
     }
     public function render()
     {
+
+        if($this->etapeEnd == null){
+            $this->etapeEnd = $this->data->endAtId;
+            $this->etapeCurrent = $this->data->startAtId;
+            $this->score = $this->startAtId;
+        }
         $this->Load($this->etapeCurrent);
         return view('livewire.quiz');
     }

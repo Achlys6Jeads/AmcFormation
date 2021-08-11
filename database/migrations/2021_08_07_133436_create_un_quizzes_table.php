@@ -16,6 +16,7 @@ class CreateUnQuizzesTable extends Migration
         Schema::create('un_quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('ennonce');
             $table->string('Question1');
             $table->string('Question2');
             $table->string('Question3');

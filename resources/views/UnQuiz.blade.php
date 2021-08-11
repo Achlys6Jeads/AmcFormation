@@ -2,7 +2,7 @@
 @section('content')
 <div class="formation-part">
     <div class="container">
-       @livewire('quiz')
+       @livewire('quiz', ['data' => $quizg])
 
         <div class="line">
             <a href="{{ url('')}}" class="next-btn">Retour</a>

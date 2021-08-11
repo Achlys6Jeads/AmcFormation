@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\CompteUtilisateur;
 use App\Models\UneFormation;
 use App\Models\UneVideo;
+use App\Models\UnQuiz;
+use App\Models\UnQuizGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -54,9 +56,9 @@ class CompteUtilisateurController extends Controller
         if($this->getInfo()){
         $formation = UneFormation::Select('*')->where('showType','=','2')->where('showId','=',$c)->first();
         if($this->getInfo()->FormationEtape == $formation->id-1){
-            $data = UneVideo::find($c);
+            $data = UnQuizGroup::find($c);
             session(['IdFormation' => $formation->id]);
-            return view('UnQuiz', ['data' => $data,'formation'=>$formation]);
+            return view('UnQuiz', ['quizg' => $data,'formation'=>$formation]);
         } else {
             return view('Sommaire');
         }
