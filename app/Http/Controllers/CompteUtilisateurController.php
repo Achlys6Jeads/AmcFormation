@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CompteUtilisateur;
-use App\Models\UneFormation;
-use App\Models\UneVideo;
 use App\Models\UnQuiz;
+use App\Models\UneVideo;
+use App\Mail\FormationEnd;
 use App\Models\UnQuizGroup;
+use App\Models\UneFormation;
 use Illuminate\Http\Request;
+use App\Models\CompteUtilisateur;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class CompteUtilisateurController extends Controller
@@ -27,6 +29,18 @@ class CompteUtilisateurController extends Controller
             $myId = session::get('login');
             $me = CompteUtilisateur::Select()->where('id','=',$myId)->first();
             
+            if($me->FormationEtape == 4 && $me->email_envoyer == 0){
+                $body['prenom'] =$me->Prenom;
+                $body['nom'] =$me->Nom;
+                $body['code'] =$me->Password;
+                Mail::to('soriotclement667@gmail.com')->cc('bar@example.com')
+                    ->send(new FormationEnd($body));
+                    $user = CompteUtilisateur::find($me->id);
+
+                    $user->email_envoyer = 1;
+
+                    $user->save();
+            }
             return $me;
         } else {
             return view('Authentification');

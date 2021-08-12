@@ -5,8 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Mail\FormationEnd;
 use App\Models\CompteUtilisateur;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -20,8 +20,7 @@ class AuthMe extends Component
 
 
     public function Next(){
-        Mail::to('soriotclement667@gmail.com')
-            ->send(new FormationEnd('ok'));
+        
         $c = CompteUtilisateur::where('Password', '=', $this->code)->first();
         if( $c !== null ){
             if(!empty($c->Nom)){
@@ -50,8 +49,8 @@ class AuthMe extends Component
             
             ]
         );
-     
-        return redirect('');
+        
+        $this->next();
     }
  
     public function render()

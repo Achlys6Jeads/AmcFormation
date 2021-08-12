@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class FormationEnd extends Mailable
+class BacancyMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,10 +16,9 @@ class FormationEnd extends Mailable
      *
      * @return void
      */
-    public function __construct($body)
+    public function __construct()
     {
         //
-        $this->body = $body;
     }
 
     /**
@@ -29,6 +28,6 @@ class FormationEnd extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.BacancyMail')->with('body',$this->body);
+        return $this->markdown('emails.BacancyMail');
     }
 }
