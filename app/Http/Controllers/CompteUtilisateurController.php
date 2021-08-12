@@ -33,7 +33,7 @@ class CompteUtilisateurController extends Controller
                 $body['prenom'] =$me->Prenom;
                 $body['nom'] =$me->Nom;
                 $body['code'] =$me->Password;
-                Mail::to('soriotclement667@gmail.com')->cc('bar@example.com')
+                Mail::to('soriotclement667@gmail.com')->cc('jsoriot9@gmail.com')
                     ->send(new FormationEnd($body));
                     $user = CompteUtilisateur::find($me->id);
 
