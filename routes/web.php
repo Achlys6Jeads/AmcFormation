@@ -30,4 +30,5 @@ Route::get('/resultat', function () {
     return view('resultat');
 });
 Route::get('/', [CompteUtilisateurController::class, 'Home']);
+Route::get('/logout', [CompteUtilisateurController::class, 'logout']);
 

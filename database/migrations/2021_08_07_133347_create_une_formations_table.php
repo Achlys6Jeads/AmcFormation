@@ -18,6 +18,7 @@ class CreateUneFormationsTable extends Migration
             $table->integer('showType');
             $table->integer('showId');
             $table->string('Titre');
+            $table->string('image');
             $table->string('Description');
             $table->timestamps();
         });

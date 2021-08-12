@@ -81,7 +81,7 @@ class Quiz extends Component
         if($this->etapeEnd == null){
             $this->etapeEnd = $this->data->endAtId;
             $this->etapeCurrent = $this->data->startAtId;
-            $this->score = $this->startAtId;
+            $this->score = $this->data->startAtId;
         }
         $this->Load($this->etapeCurrent);
         return view('livewire.quiz');

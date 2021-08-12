@@ -115,9 +115,6 @@
     font-size: 1.3rem;
 }
 
-.header .side .access-code:focus-within {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40);
-}
 
 .header .side .access-code button.submit {
     padding: 1rem;
@@ -188,9 +185,7 @@
     transition: 250ms box-shadow;
 }
 
-.identify .container form.form input:focus {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40);
-}
+
 
 .identify .container form.form button.submit {
     background: var(--gradient-h);

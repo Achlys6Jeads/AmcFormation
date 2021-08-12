@@ -33,6 +33,24 @@ class CompteUtilisateurController extends Controller
 
     }
 
+    public function sendMail(){
+        if(session::has('login')){
+            $myId = session::get('login');
+            $me = CompteUtilisateur::Select()->where('id','=',$myId)->first();
+            if($me->email_envoyer == 0){
+                
+            }
+
+        } else {
+            return view('Authentification');
+        }
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect('');
+    }
+
     public function ShowVideo($c){
         if($this->getInfo()){
         $formation = UneFormation::Select('*')->where('showType','=','1')->where('showId','=',$c)->first();

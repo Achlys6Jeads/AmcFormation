@@ -1,6 +1,6 @@
 @extends('welcome')
 @section('content')
-<div class="formations">
+<div class="formations" >
     <div class="container">
         <div class="formation">
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.stokestiles.co.uk%2Fimages%2Fww%2Fmerlin%2F150x150_Plain_Grey_SWT6.jpg&amp;f=1&amp;nofb=1" alt="" class="illustration">

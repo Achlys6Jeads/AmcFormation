@@ -2,25 +2,9 @@
 <div>
 
         @foreach($this->Sommaire() as $key => $value)
-        @php
-                $max = count($this->Sommaire());
-               if($key+1 == $max){
-                        if($provider->getInfo()->FormationEtape == $value->id-1){ @endphp
-                                <div class="formation">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3X5gLT12aXxSDDFOO9lfNXy6iXdk9iR2y69bJEECwPawpZfr25j9P2zAz4Z1FMoGQcpA&usqp=CAU" alt="" class="illustration">
-                                        <div class="informations">
-                                        <p class="formation-name">Vous avez finit la formation</p>
-                                        <p class="formation-description">Vous pouvez disposser.</p>
-                                        </div>
-                                <a href="{{ url('resultat') }}" class="start-btn">Voir le resultat.</a>
-                        </div>
-                        @php
-                                break;
-                        }
-               }
-        @endphp
+ 
         <div class="formation">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.stokestiles.co.uk%2Fimages%2Fww%2Fmerlin%2F150x150_Plain_Grey_SWT6.jpg&amp;f=1&amp;nofb=1" alt="" class="illustration">
+                <img src="{{ url('') }}/{{ $value->image }}" alt="" class="illustration">
                 <div class="informations">
                     <p class="formation-name">{{ $value->Titre }}</p>
                     <p class="formation-description">{{ $value->Description }}</p>
@@ -38,6 +22,23 @@
                 <a  class="start-btn" style="filter:grayscale(100%);cursor:default;">⌛</a>
                 @endif
         </div>
+        @php
+        $max = count($this->Sommaire());
+               if($key+1 == $max){
+                        if($provider->getInfo()->FormationEtape == $value->id){ @endphp
+                                <div class="formation">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3X5gLT12aXxSDDFOO9lfNXy6iXdk9iR2y69bJEECwPawpZfr25j9P2zAz4Z1FMoGQcpA&usqp=CAU" alt="" class="illustration">
+                                        <div class="informations">
+                                        <p class="formation-name">Vous avez finit la formation</p>
+                                        <p class="formation-description">Vous pouvez disposser.</p>
+                                        </div>
+                                <a href="{{ url('resultat') }}" class="start-btn">Voir le resultat.</a>
+                        </div>
+                        @php
+                               
+                        }
+               }
+        @endphp
         @endforeach
         
 </div>

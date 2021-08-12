@@ -1,8 +1,8 @@
 <div>
-    <div class="quizz">
+    <div class="quizz" style="margin-top:4rem">
         <div class="top">
             <div class="line-up">
-                <p class="quizz-avancement">{{@$etapeCurrent}}/{{@$etapeEnd}} ({{ @$Rep }}) ({{ @$score }})</p>
+                <p class="quizz-avancement">{{@$etapeCurrent}}/{{@$etapeEnd}}</p>
             </div>
             <img class="formation-img" src="{{url('img/')}}{{ @$quiz['image']}}" alt="">
         </div>
@@ -36,8 +36,11 @@
                     <span class="ckb"></span>
                 </label>
             </div>
-            <p wire:click="Valider()">valider</p>
 
+
+        </div>
+        <div style="width:100%;display:flex;align-items:flex-end;justify-content:flex-end;margin-top:2rem">
+            <a wire:click="Valider()" class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;">valider</a>
         </div>
     </div>
     <script type="text/javascript">

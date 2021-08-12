@@ -14,17 +14,19 @@
     @livewireStyles
 </head>
 
-<body>
+<body style="display:flex;flex-direction:column">
 
 <div class="navbar">
     <div class="container">
         <div class="side">
-            <a href="{{url('')}}"><img src="https://www.dircab.net/upload/billet/0001/191212-121241-ramery-immobilier.png" alt="" class="logo-img"></a>
+            <a href="{{url('')}}">Sommaire</a>
         </div>
     </div>
 </div>
 
+
     @yield('content' )
+
     
 <div class="footer">
     <img src="files/wave-footer.svg" alt="" class="wave">

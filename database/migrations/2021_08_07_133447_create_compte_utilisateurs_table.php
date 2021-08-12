@@ -22,6 +22,7 @@ class CreateCompteUtilisateursTable extends Migration
             $table->string('Email');
             $table->string('Societe');
             $table->string('Agence');
+            $table->integer('email_envoyer');
             $table->timestamps();
         });
     }

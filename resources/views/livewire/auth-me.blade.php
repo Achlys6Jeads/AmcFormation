@@ -4,9 +4,10 @@
         <div class="container">
             <div class="side">
                 <h1 class="title">Formez-Vous !</h1>
-                <h2 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices nunc id leo tristique vehicula.</h2>
+                <h2 class="subtitle">Formation AIPR</h2>
+                <form action="" style="display:flex;" wire:submit.prevent="Next()">
                 <div class="access-code">
-                   <form action="" style="display:flex;" wire:submit.prevent="Next()">
+                   
                     <input wire:model="code" placeholder="Entrer mon code d'accès" type="text" class="input-type">
                     <button class="submit" wire:click="Next()" ><svg width="40" height="24" viewBox="0 0 40 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -15,16 +16,17 @@
                                 fill="white" fill-opacity="0.75" />
                         </svg>
                     </button>
-                   </form>
+                 
              
        
                 </div>
+            </form>
             </div>
             <div class="side">
-                <img class="character" src="files/character.svg" alt="">
+                <img class="character" src="{{url('ram.png')}}" alt="">
             </div>
         </div>
-        <img src="wave.svg" class="wave" alt="">
+        <img src="{{url('wave.svg')}}" class="wave" alt="">
         <div class="line"></div>
     </div>
     
