@@ -28,7 +28,7 @@ class FormationEnd extends Mailable
      */
     public function build()
     {
-        return $this->from('example@example.com', 'Example')
-        ->view('Authentification');
+        return $this->from('noreply@acmc.achlys.fr')
+            ->view('Authentification');
     }
 }
