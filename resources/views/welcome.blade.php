@@ -19,13 +19,15 @@
 <div class="navbar">
     <div class="container">
         <div class="side">
-            <a href="{{url('')}}">Sommaire</a>
+            <a href="{{url('')}}">Accueil</a>
         </div>
     </div>
 </div>
 
 
-    @yield('content' )
+    <div style="min-height:100vh">
+        @yield('content' )
+    </div>
 
     
 <div class="footer">

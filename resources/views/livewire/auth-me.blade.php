@@ -23,7 +23,7 @@
             </form>
             </div>
             <div class="side">
-                <img class="character" src="{{url('ram.png')}}" alt="">
+                <img style="height:200px;object-fit:cover;width:250px" class="character" src="{{url('ram.png')}}" alt="">
             </div>
         </div>
         <img src="{{url('wave.svg')}}" class="wave" alt="">

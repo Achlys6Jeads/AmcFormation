@@ -26,6 +26,7 @@ class CompteUtilisateurController extends Controller
         if(session::has('login')){
             $myId = session::get('login');
             $me = CompteUtilisateur::Select()->where('id','=',$myId)->first();
+            
             return $me;
         } else {
             return view('Authentification');
@@ -76,6 +77,7 @@ class CompteUtilisateurController extends Controller
         if($this->getInfo()->FormationEtape == $formation->id-1){
             $data = UnQuizGroup::find($c);
             session(['IdFormation' => $formation->id]);
+            
             return view('UnQuiz', ['quizg' => $data,'formation'=>$formation]);
         } else {
             return view('Sommaire');
