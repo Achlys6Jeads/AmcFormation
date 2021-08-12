@@ -39,8 +39,22 @@
 
 
         </div>
-        <div style="width:100%;display:flex;align-items:flex-end;justify-content:flex-end;margin-top:2rem">
-            <a wire:click="Valider()" class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;">valider</a>
+        <div style="width:100%;display:flex;align-items:flex-end;justify-content:flex-end;margin-top:2rem;min-height:50px">
+
+            <div wire:loading.remove>
+                @if($this->userReponse !== null)
+                <a wire:click="Valider()" class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;" onclick="Uncheck()" >valider</a>
+                @endif
+             </div>
+
+   
+
+             <div wire:loading>
+           
+                <a class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;" >Chargement</a>
+     
+             </div>
+            
         </div>
     </div>
     <script type="text/javascript">
@@ -57,5 +71,19 @@
                 };
             }
         };
+
+        function Uncheck(){
+            var container = document.getElementById("answers-list");
+            var chks = container.getElementsByTagName("INPUT");
+            for (var i = 0; i < chks.length; i++) {
+                chks[i].onclick = function() {
+                    for (var i = 0; i < chks.length; i++) {
+                        if (chks[i] != this && this.checked) {
+                            chks[i].checked = false;
+                        }
+                    }
+                };
+            }
+        }
     </script>
 </div>

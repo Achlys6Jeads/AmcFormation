@@ -12,7 +12,7 @@ class Quiz extends Component
 {
     public $quiz;
     public $data;
-    public $reponse = 1;
+    public $reponse = null;
     public $etapeCurrent = 1;
     public $userReponse = null;
     public $etapeEnd = null;
