@@ -47,7 +47,7 @@ class AuthMe extends Component
             ]
         );
      
-        return redirect('/formation');
+        return redirect('');
     }
  
     public function render()
