@@ -23,7 +23,13 @@ class CompteUtilisateurController extends Controller
             return view('Sommaire');
         }
     }
-
+    public static function imOnline(){
+        if(!session::has('login')){
+            return false;
+        }  else {
+            return true;
+        }
+    }
     public function getInfo(){
         if(session::has('login')){
             $myId = session::get('login');

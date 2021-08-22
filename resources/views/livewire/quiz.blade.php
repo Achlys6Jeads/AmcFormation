@@ -1,10 +1,14 @@
 <div>
+
+
+
+
     <div class="quizz" style="margin-top:4rem">
         <div class="top">
             <div class="line-up">
-                <p class="quizz-avancement">{{@$etapeCurrent}}/{{@$etapeEnd}}</p>
+                <p class="quizz-avancement">Question {{@$etapeCurrent}} sur {{@$etapeEnd}}</p>
             </div>
-            <img class="formation-img" src="{{url('img/')}}{{ @$quiz['image']}}" alt="">
+            <img class="formation-img" src="{{ @$quiz['image']}}" alt="">
         </div>
         <p class="ask">{{ $quiz['ennonce'] }}</p>
         <div class="bottom" id="answers-list">
@@ -44,16 +48,15 @@
 
             <div wire:loading.remove>
                 @if($this->userReponse !== null)
-                <a wire:click="Valider()" class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;" onclick="Uncheck()" >valider</a>
+                <a wire:click="Valider()" onclick="Valider()" class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;" onclick="Uncheck()" >valider</a>
                 @endif
              </div>
 
    
 
-             <div wire:loading>
-           
-                <a class="next-btn" style="width:200px;height:50px;display:flex;align-items:center;justify-content:center;" >Chargement</a>
-     
+             <div wire:loading >
+                <div class="next-btn" > <img src="{{ url('index.svg') }}" alt="Chargement"></div>
+               
              </div>
             
         </div>
@@ -89,9 +92,26 @@
 
         window.addEventListener('Valider', event => {
             Uncheck();
+            setTimeout(function() {
+            hideLoader();
+        }, 2000 );
         })
+
+
+function Valider(){
+    showLoader();
+          
+}
+        
     </script>
     <style>
+    .formation-part .container .quizz .bottom .answer label.main{
+        height:100%;
+ 
+    }
+    .ckb{
+        height:100% !important;
+    }
         .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -100,6 +120,12 @@
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+                                  text-align:center;
+                                  font-weight: bold;
+                                  background: -webkit-linear-gradient(rgb(49, 46, 46), rgb(29, 21, 21));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+                         
 }
     </style>
 </div>

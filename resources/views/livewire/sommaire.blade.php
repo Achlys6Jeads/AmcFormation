@@ -3,7 +3,7 @@
 
         @foreach($this->Sommaire() as $key => $value)
  
-        <div class="formation">
+        <div class="formation" style="align-items:center;">
                 <img src="{{ url('') }}/{{ $value->image }}" alt="" class="illustration">
                 <div class="informations">
                     <p class="formation-name">{{ $value->Titre }}</p>

@@ -8,10 +8,10 @@
 }
 
  :root {
-    --primary: #0055D4;
+    --primary: #1a1a1a;
     --light: #F1F1F1;
     --gradient-h: linear-gradient(rgba(0, 85, 212, 1), rgba(0, 85, 212, 0.92));
-    --gradient-y: linear-gradient(180deg, rgba(0, 85, 212, 1), rgba(0, 85, 212, 0.92));
+    --gradient-y: linear-gradient(180deg, rgb(47, 47, 47), rgba(32, 35, 39, 0.92));
 }
 
 .container {
@@ -112,7 +112,11 @@
     border-radius: 10px 0 0 10px;
     outline: none;
     border: none;
+    color:white;
     font-size: 1.3rem;
+}
+.header .side .access-code input.input-type::placeholder {
+    color:rgba(255, 255, 255, 0.52);
 }
 
 
@@ -477,7 +481,7 @@
 }
 
 .formation-part .container .quizz .bottom .answer label.main input[type=checkbox]:checked~.ckb {
-    background-color: var(--primary);
+    background-color: #349feb6e;
 }
 
 .formation-part .container .quizz .bottom .answer label.main .ckb:after {

@@ -51,25 +51,27 @@ class Quiz extends Component
                 return redirect('');
             }
         } else {
+            $this->dispatchBrowserEvent('Valider', ['newName' => 'cc']);
+            if($this->userReponse == $this->reponse){
+                $this->score++;
+                $this->Rep = "Bonne reponse";
+            } else {
+                if($this->userReponse == 4){
+                   
+                    $this->Rep = "Pas de malus";
+                } else {
+                    $this->score = $this->score-1;
+                    $this->Rep = "Mauvaise reponse";
+                }
+                $this->userReponse = null;
+                
+            }
+            
             $this->etapeCurrent++;
             $this->Load($this->etapeCurrent);
     
         }
-        $this->dispatchBrowserEvent('Valider', ['newName' => 'cc']);
-        if($this->userReponse == $this->reponse){
-            $this->score++;
-            $this->Rep = "Bonne reponse";
-        } else {
-            if($this->userReponse == 4){
-               
-                $this->Rep = "Pas de malus";
-            } else {
-                $this->score = $this->score-1;
-                $this->Rep = "Mauvaise reponse";
-            }
-            
-            
-        }
+
     }
     }
     public function Choix($num){
