@@ -11,32 +11,33 @@
             <div class="answer awme" style="flex:1;">
                 <label class="main" for="A" wire:click="Choix(1)">
                     <input type="checkbox" name="answer" value="A" id="A">
-                    <p>{{ @$quiz['Question1']}}</p>
+                    <p  class="noselect">{{ @$quiz['Question1']}}</p>
                     <span class="ckb"></span>
                 </label>
             </div>
             <div class="answer awme"  style="flex:1;">
                 <label class="main" for="B" wire:click="Choix(2)">
                     <input type="checkbox" name="answer" value="B" id="B">
-                    <p>{{ @$quiz['Question2']}}</p>
+                    <p  class="noselect">{{ @$quiz['Question2']}}</p>
                     <span class="ckb"></span>
                 </label>
             </div>
             <div class="answer awme"  style="flex:1;">
                 <label class="main" for="C" wire:click="Choix(3)">
                     <input type="checkbox" name="answer" value="C" id="C">
-                    <p>{{ @$quiz['Question3']}}</p>
+                    <p  class="noselect">{{ @$quiz['Question3']}}</p>
                     <span class="ckb"></span>
                 </label>
             </div>
             <div class="answer awme"  style="flex:1;">
                 <label class="main" for="D" wire:click="Choix(4)">
                     <input type="checkbox" name="answer" value="D" id="D" >
-                    <p>{{ @$quiz['Question4']}}</p>
+                    <p class="noselect">{{ @$quiz['Question4']}}</p>
                     <span class="ckb"></span>
                 </label>
             </div>
 
+    
 
         </div>
         <div style="width:100%;display:flex;align-items:flex-end;justify-content:flex-end;margin-top:2rem;min-height:50px">
@@ -62,7 +63,7 @@
             var container = document.getElementById("answers-list");
             var chks = container.getElementsByTagName("INPUT");
             for (var i = 0; i < chks.length; i++) {
-                chks[i].onclick = function() {
+                chks[i].onchange = function() {
                     for (var i = 0; i < chks.length; i++) {
                         if (chks[i] != this && this.checked) {
                             chks[i].checked = false;
@@ -76,14 +77,29 @@
             var container = document.getElementById("answers-list");
             var chks = container.getElementsByTagName("INPUT");
             for (var i = 0; i < chks.length; i++) {
-                chks[i].onclick = function() {
+              
                     for (var i = 0; i < chks.length; i++) {
-                        if (chks[i] != this && this.checked) {
+                        
                             chks[i].checked = false;
-                        }
+                        
                     }
-                };
+              
             }
         }
+
+        window.addEventListener('Valider', event => {
+            Uncheck();
+        })
     </script>
+    <style>
+        .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+    </style>
 </div>

@@ -55,7 +55,7 @@ class Quiz extends Component
             $this->Load($this->etapeCurrent);
     
         }
-        
+        $this->dispatchBrowserEvent('Valider', ['newName' => 'cc']);
         if($this->userReponse == $this->reponse){
             $this->score++;
             $this->Rep = "Bonne reponse";

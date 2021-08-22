@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use Exception;
 use Livewire\Component;
 use App\Mail\FormationEnd;
 use App\Models\CompteUtilisateur;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -41,18 +42,23 @@ class AuthMe extends Component
     }
 
     public function saveContact(){
-        $flight = CompteUtilisateur::where('Password', $this->code)
-        ->update(
-            ['nom' => $this->form['nom'],
-            'prenom' => $this->form['prenom'],
-            'email' => $this->form['email'],
-            'agence' => $this->form['agence'],
-            'societe' => $this->form['society'],
+        try{
+            $flight = CompteUtilisateur::where('Password', $this->code)
+            ->update(
+                ['nom' => $this->form['nom'],
+                'prenom' => $this->form['prenom'],
+                'email' => $this->form['email'],
+                'agence' => $this->form['agence'],
+                'societe' => $this->form['society'],
+                
+                ]
+            );
             
-            ]
-        );
+            $this->next();
+        }  catch (Exception $e) {
         
-        $this->next();
+        }
+
     }
  
     public function render()
