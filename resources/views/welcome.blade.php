@@ -52,7 +52,7 @@
     </div>
 
 
-    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;" class="bob">
+    <div style="min-height:100vh" class="bob">
         @yield('content' )
     </div>
 
