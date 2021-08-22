@@ -15,6 +15,7 @@ class AuthMe extends Component
     public $Inscription = "display: none";
     public $code;
 
+
     public $form;
 
 
@@ -34,6 +35,7 @@ class AuthMe extends Component
             
         } else {
             $this->Inscription = "display: none";
+            $this->code = "Code incorrect";
         }
         
     }
